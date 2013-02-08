@@ -1,15 +1,41 @@
-//******************************************************//
-this is xq lib readme file
-//******************************************************//
+xqlib is a temperary name of this library
 
-xq lib is a c++ network library support windows and linux , focus on 64bit system.
+xqlib is portable C++ library suport windows 64 and linux 64, it include base classes which multi-thread application
+needed, and  network framework. 
 
-It contains base multi thread application facilities and network framework.
+this library will use std c++ and boost as base facility.
 
-this is added int branch "local"
+supported compiler: VC10 , MinGW on windows platform, GCC on linux . can be used as shared library(DLL) or source code.
 
-local add one another line for test
+Development enviroment is Visual Studi 2010 and Eclipse.
 
-EdiT it f
+classes list by category:
 
+Thread Syncrinize object: 
+	ThreadMutex
+	ThreadRWMutex
+	ThreaSemaphore
+	ThreadEvent 
+	Guard
+Process and Thread management:
+	Process
+	Thread
+	ThreadPool
+Message Queue:
+	MessageQueue
+Memoru Pool:
+	MemoryPool
+Network framework:
+	Reactor
 
+IO Poll strategy:
+	Poll
+	Epoll
+	IOCP
+Basic socket wrapper:
+	Socket
+Time object and TimeQueue:
+	TimeValue
+	TimerQueue
+Other utlity:
+	ConfigFile
