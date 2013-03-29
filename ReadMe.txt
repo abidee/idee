@@ -3,9 +3,9 @@
 idee is portable C++ library suport windows X64 and linux X86_64, it include base classes which multi-thread application
 needed, and network framework. 
 
-this library will use std c++ and boost as base facility. conformance to C11 thread specification and extend some usable functions.
+this library will use std c++ and boost as base facility. conformance to C++11 thread specification and extend some usable functions.
 
-supported compiler: VC10 , MinGW on windows platform, GCC4.x on linux . can be used as shared library(DLL,so) or source code.
+supported compiler: VC8-VC10 , MinGW on windows platform, GCC4.x on linux . can be used as shared library(DLL,so) or source code.
 
 Development enviroment is Visual Studi 2010 and Eclipse Juno, the 2 IDE can work in one direcory.
 
@@ -24,7 +24,7 @@ Process and Thread management:
 Message Queue:
 	MessageBlock
 	MessageQueue
-Memoru Pool:
+Memory Pool:
 	MemoryPool
 Other utlity:
 	ConfigFile
