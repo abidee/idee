@@ -8,7 +8,7 @@
  * function...  It performs automatic acquisition and release of
  * a parameterized synchronization object T.
  *
- * @warning A successfully constructed Guard does NOT mean that the lock was acquired!  
+ *  A successfully constructed Guard does NOT mean that the lock was acquired!  
  * Code like this is dangerous:
  *   {
  *     ACE_Guard<ACE_Lock> g(lock);
@@ -39,9 +39,8 @@ public:
  
   Guard (T &lock);
 
-  /// Implicitly and automatically acquire (or try to acquire) the
-  /// lock.  If @a block is non-0 then acquire() the T, else
-  /// tryacquire() it.
+  /// Implicitly and automatically acquire (or try to acquire) the lock.  
+  /// If @a block is non-0 then acquire() the T, else tryacquire() it.
   Guard (T &lock, bool block);
   
   ///unlock in dtor 
