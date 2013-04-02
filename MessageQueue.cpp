@@ -62,17 +62,17 @@ int MessageQueue::push_front(MessageBlock* mb)
 {
 	this->locker_.lock();
 
-	if(this->total_size_ + mb->length() > this->high_limit_) 
+	if(this->total_size_ + mb->data_len() > this->high_limit_) 
 	{
 		//大于high_limit_, 把尾部的一个释放
 		MessageBlock tmp = this->deque_.back();
 		this->deque_.pop_back();
 		tmp.release();	
-		this->total_size_ -= tmp.length();
+		this->total_size_ -= tmp.data_len();
 	}
 
 	this->deque_.push_front(*mb);
-	this->total_size_ += mb->length();
+	this->total_size_ += mb->data_len();
 
 	this->locker_.unlock();
 
@@ -83,17 +83,17 @@ int MessageQueue::push_back(MessageBlock* mb)
 {
 	this->locker_.lock();
 
-	if(this->total_size_ + mb->length() > this->high_limit_) 
+	if(this->total_size_ + mb->data_len() > this->high_limit_) 
 	{
 		//大于high_limit_, 把头部的一个释放
 		MessageBlock tmp = this->deque_.front();
 		this->deque_.pop_front();
 		tmp.release();	
-		this->total_size_ -= tmp.length();
+		this->total_size_ -= tmp.data_len();
 	}
 
 	this->deque_.push_back(*mb);
-	this->total_size_ += mb->length();
+	this->total_size_ += mb->data_len();
 
 	this->locker_.unlock();
 	return 0;
@@ -105,7 +105,7 @@ int MessageQueue::pop_front(MessageBlock* mb)
 
 	*mb = this->deque_.front();
 	this->deque_.pop_front();
-	this->total_size_ -= mb->length();
+	this->total_size_ -= mb->data_len();
 
 	this->locker_.unlock();
 
@@ -118,7 +118,7 @@ int MessageQueue::pop_back(MessageBlock* mb)
 
 	*mb = this->deque_.back();
 	this->deque_.pop_back();
-	this->total_size_ -= mb->length();
+	this->total_size_ -= mb->data_len();
 
 	this->locker_.unlock();
 
