@@ -7,6 +7,7 @@
 * 可以做为一个数据块使用, 放入MessageQueue中
 * 也可以做为一个socket连接的 input buffer和output buffer类
 * 为了提高性能, 增大不超过上限时只增加不减少 
+* 前面预留head是为了有些应用会最后增加长度类似的信息
 * 
 * buffer memory structure:
 *  +-------------------+-------------------------------+------------------------------+
@@ -73,7 +74,7 @@ private:
 	size_t rd_ptr_;		//read ptr
 	size_t wr_ptr_;		//write ptr
 
-	unsigned int msg_type_;	
+	unsigned int msg_type_;		//message type 
 
 };
 
