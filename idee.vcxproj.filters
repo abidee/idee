@@ -78,6 +78,15 @@
     <ClInclude Include="MessageBlock.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TyConf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TyFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -121,6 +130,12 @@
     </ClCompile>
     <ClCompile Include="MessageBlock.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TyConf.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TyFile.cpp">
+      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -10,6 +10,15 @@
 namespace idee
 {
 
+MemoryPool::MemoryPool()
+{		
+}
+
+MemoryPool::~MemoryPool()
+{
+	release();
+}
+
 void MemoryPool::init(unsigned short block, unsigned int maxsize)
 {	
 	//计算内存池的级数(buddy的二叉树的级数)

@@ -41,14 +41,11 @@ private:
 	
 	Mutex locker_;							//Ëø
 public:
-	MemoryPool()
-	{		
-	}
+	MemoryPool();
+	
 
-	~MemoryPool()
-	{
-		release();
-	}
+	~MemoryPool();
+	
 
 /**
 * @brief init

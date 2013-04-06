@@ -10,23 +10,19 @@ namespace idee
 
 Thread::Thread()
 {
-	//Thread::spawn(thread_func, (void*)this, 0, NULL);
+	
+}
+
+Thread::Thread(int (*func)(void *), void *arg)
+{
+	spawn(func, arg);
 }
 
 Thread::~Thread()
 {	
 }
 
-//int Thread::spawn (XQ_THR_FUNC func,
-//                void *arg,
-//                long flags,
-//                Thread_t *t_id)
-//{
-//	
-//	return 0;
-//}
-
-Thread::Thread(int (*func)(void *), void *arg)
+int Thread::spawn(int (*func)(void *), void *arg)
 {
 	ThreadStartInfo * tsi = new ThreadStartInfo();
 	tsi->func_ = func;
@@ -46,7 +42,9 @@ Thread::Thread(int (*func)(void *), void *arg)
   if(!handle_)
   {    
     delete tsi;
+	return -1;
   }
+	return 0;
 }
 
 

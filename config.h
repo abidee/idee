@@ -17,15 +17,15 @@
 #define XQ_CONFIG_H
 
 //for windows 
-//#define XQ_WIN_PLATFORM
-//#include "config_win32.h"
+#define XQ_WIN_PLATFORM
+#include "config_win32.h"
 
 //for linux
 //#define XQ_LINUX_PLATFORM
 //#include "config_linux.h"
 
 //for mingw on windows
-#define XQ_LINUX_PLATFORM
-#include "config_win32_mingw.h"
+//#define XQ_LINUX_PLATFORM
+//#include "config_win32_mingw.h"
 
 #endif
