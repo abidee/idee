@@ -70,12 +70,12 @@ XQ_INLINE char *MessageBlock::wr_ptr()
 	return this->base_ + this->wr_ptr_;
 }
 
-XQ_INLINE void MessageBlock::rd_ptr(size_t len)
+XQ_INLINE void MessageBlock::rd_ptr(int len)
 {
-	this->rd_ptr_ += len;  //TODO 超过size 怎么办?
+	this->rd_ptr_ += len;  //TODO 小于0 或者 超过size 怎么办?
 }
 
-XQ_INLINE void MessageBlock::wr_ptr(size_t len)
+XQ_INLINE void MessageBlock::wr_ptr(int len)
 {
 	this->wr_ptr_ += len;
 }

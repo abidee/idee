@@ -2,6 +2,11 @@
 * @file MessageQueue.h
 * @brief Simple message queue in multi-thread programming, this class has a lock 
 * @author X_Q
+*
+* ±¸×¢:
+* 
+*
+*
 */
 
 #ifndef XQ_MESSAGE_QUEUE_H
@@ -13,7 +18,7 @@ namespace idee
 {
 
 //template <class T>
-class XQ_EXPORT_TEMPLATE MessageQueue
+class XQ_EXPORT MessageQueue
 {
 public:
 	//typedef T value_type;
@@ -44,7 +49,8 @@ private:
 
 private:
 	Mutex locker_;			//locker 
-	std::deque<MessageBlock> deque_;	
+	std::deque<MessageBlock> deque_;	//Message ovbject store in dueqe
+	
 
 };
 

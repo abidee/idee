@@ -10,11 +10,11 @@
 * 前面预留head是为了有些应用会最后增加长度类似的信息
 * 
 * buffer memory structure:
-*  +-------------------+-------------------------------+------------------------------+
-*  + headable bytes    | readable bytes                |  writable bytes              |
-*  +                   | ##### here is real data ##### |                              |
-*  +-------------------+-------------------------------+------------------------------+
-*  0     <=         rd_ptr_         <=            wr_ptr_          <=                size
+*  +-------------------+-------------------------------+---------------------------+
+*  | headable bytes    | readable bytes                |  writable bytes           |
+*  |                   | ##### here is real data ##### |                           |
+*  +-------------------+-------------------------------+---------------------------+
+*  0     <=         rd_ptr_         <=             wr_ptr_          <=             size
 *
 */
 
@@ -36,11 +36,12 @@ public:
 	static const size_t max_buffer_size_ = 1024 * 1024;		//maxium buffer size 
 
 public:
-	//ctor with buffer size and head 
+	///ctor with buffer size and head 
 	MessageBlock(size_t len=1024, size_t head=8);
 
-	//ctor with pre-alloc data with length
+	///ctor with pre-alloc data with length
 	MessageBlock(char *buf, size_t len);
+
 	~MessageBlock();
 
 	void swap(MessageBlock& rhs);
@@ -65,8 +66,8 @@ public:
 	char *wr_ptr();
 
 	//set read or write ptr
-	void rd_ptr(size_t len);
-	void wr_ptr(size_t len);
+	void rd_ptr(int len);
+	void wr_ptr(int len);
 private:
 	char *base_;		//base data ptr
 	
