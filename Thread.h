@@ -41,11 +41,8 @@ public:
 	virtual ~Thread();
 
 public:
-	
- //static int spawn (XQ_THR_FUNC func,
- //               void *arg = 0,
- //               long flags = 0,
- //               ACE_Thread_t *t_id = 0);
+	///create thread 
+	int spawn(int (*func)(void *), void *arg); 
 
 	///get platform specified native handle
 	XQ_thread_t& native_handle();

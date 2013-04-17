@@ -5,7 +5,7 @@
 * 
 * 备注: 提供对一块连续内存缓冲区的操作, 有读写指针
 * 可以做为一个数据块使用, 放入MessageQueue中
-* 也可以做为一个socket连接的 input buffer和output buffer类
+* 可以做为一个socket连接的 input buffer和output buffer类
 * 为了提高性能, 增大不超过上限时只增加不减少 
 * 前面预留head是为了有些应用会最后增加长度类似的信息
 * 
