@@ -33,9 +33,6 @@
     <ClInclude Include="Thread.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="config.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Mutex.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -85,6 +82,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="TyFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="config_idee.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,8 +6,6 @@ linux platform macro define
 #define XQ_CONFIG_LINUX_H
 
 
-//#define XQLIB_EXPORT
-
 #ifndef XQLIB_EXPORT
 	#define XQ_EXPORT __declspec(dllimport)
 	#define XQ_EXPORT_TEMPLATE
@@ -18,5 +16,21 @@ linux platform macro define
 
 #define XQ_INLINE inline
 
+//os specific headers
+#include <pthread.h>
+#include <signal.h>
+#include <sched.h>
+#include <unistd.h>
+#include <semaphore.h>
+
+//std headers
+#include <list>
+#include <vector>
+#include <deque>
+
+//C runtime headers
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 #endif

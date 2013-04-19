@@ -44,17 +44,7 @@ public:
   int lock (void);
 
  
-  //int acquire (ACE_Time_Value &tv);
-
-  /**
-   * If @a tv == 0 the call acquire() directly.  Otherwise, Block the
-   * thread until we acquire the mutex or until @a tv times out, in
-   * which case -1 is returned with @c errno == @c ETIME.  Note that
-   * @a tv is assumed to be in "absolute" rather than "relative" time.
-   * The value of @a tv is updated upon return to show the actual
-   * (absolute) acquisition time.
-   */
-  //int acquire (ACE_Time_Value *tv);
+  //int acquire (ACE_Time_Value &tv);  
 
   /**
    * Conditionally acquire lock (i.e., don't wait on queue).  Returns
@@ -71,17 +61,10 @@ public:
    * to make the Mutex interface consistent with the
    * other synchronization Class.
    */
-  int lock_read (void);
-
-  /**
-   * This calls lock() and is only here
-   * to make the Mutex interface consistent with the
-   * other synchronization Class.
-   */
+  int lock_read (void);  
   int lock_write (void);
   
-  int try_lock_read (void);
-  
+  int try_lock_read (void);  
   int try_lock_write (void);  
 
   // Return the underlying mutex.
