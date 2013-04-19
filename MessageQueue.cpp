@@ -7,7 +7,8 @@ namespace idee
 {
 
 //template <class T>
-MessageQueue::MessageQueue()
+MessageQueue::MessageQueue(size_t high_limit, size_t low_limit)
+	:total_size_(0), high_limit_(high_limit), low_limit_(low_limit)
 {
 }
 
@@ -35,9 +36,14 @@ void MessageQueue::release()
 	this->locker_.unlock();
 }
 
-size_t MessageQueue::msg_count()
+XQ_INLINE size_t MessageQueue::msg_count()
 {
 	return this->deque_.size();
+}
+
+XQ_INLINE size_t MessageQueue::total_size()
+{
+	return this->total_size_;
 }
 
 void MessageQueue::peek_front(MessageBlock* mb)

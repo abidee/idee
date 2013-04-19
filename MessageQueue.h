@@ -12,6 +12,7 @@
 #ifndef XQ_MESSAGE_QUEUE_H
 #define XQ_MESSAGE_QUEUE_H
 
+
 #include "MessageBlock.h"
 
 namespace idee
@@ -23,10 +24,10 @@ class XQ_EXPORT MessageQueue
 public:
 	//typedef T value_type;
 public:
-	MessageQueue();
+	MessageQueue(size_t high_limit = 1024*1024, size_t low_limit = 1024);
 	~MessageQueue(void);
 
-protected:
+public:
 	void init();
 	void release();
 
@@ -39,8 +40,11 @@ protected:
 	int pop_front(MessageBlock*);
 	int pop_back(MessageBlock*);
 	
-	//message count
+	///message count
 	size_t msg_count();
+
+	///total data size
+	size_t total_size();
 private:		
 	size_t total_size_;		//total bytes of the queue
 
