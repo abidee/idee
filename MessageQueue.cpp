@@ -32,7 +32,7 @@ void MessageQueue::release()
 		it->release();
 	}
 	this->deque_.clear();
-
+	this->total_size_ = 0;
 	this->locker_.unlock();
 }
 
@@ -73,8 +73,8 @@ int MessageQueue::push_front(MessageBlock* mb)
 		//大于high_limit_, 把尾部的一个释放
 		MessageBlock tmp = this->deque_.back();
 		this->deque_.pop_back();
-		tmp.release();	
 		this->total_size_ -= tmp.data_len();
+		tmp.release();		
 	}
 
 	this->deque_.push_front(*mb);
@@ -93,9 +93,9 @@ int MessageQueue::push_back(MessageBlock* mb)
 	{
 		//大于high_limit_, 把头部的一个释放
 		MessageBlock tmp = this->deque_.front();
-		this->deque_.pop_front();
-		tmp.release();	
+		this->deque_.pop_front();			
 		this->total_size_ -= tmp.data_len();
+		tmp.release();
 	}
 
 	this->deque_.push_back(*mb);

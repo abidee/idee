@@ -88,7 +88,7 @@ int  MessageBlock::append(const char* buf, size_t len)
 		wr_ptr_ += len;
 		return 0;
 	}
-	else if(len <= this->rd_ptr_) //前面可以放的下
+	else if(len <= this->rd_ptr_) //前面可以放的下,后面的前移,新的拼接起来
 	{
 		size_t old_len = this->data_len();
 		void *tmp = malloc(old_len);
