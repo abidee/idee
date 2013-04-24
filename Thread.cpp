@@ -27,8 +27,7 @@ int Thread::spawn(int (*func)(void *), void *arg)
 	ThreadStartInfo * tsi = new ThreadStartInfo();
 	tsi->func_ = func;
 	tsi->arg_ = arg;
-	tsi->thread_ptr_ = this;
-  
+	tsi->thread_ptr_ = this;  
 
   // Create the thread
 #if defined(XQ_WIN_PLATFORM)
@@ -38,29 +37,37 @@ int Thread::spawn(int (*func)(void *), void *arg)
 		handle_ = 0;
 #endif
 
-  // Did we fail to create the thread?
-  if(!handle_)
-  {    
-    delete tsi;
-	return -1;
-  }
+// Did we fail to create the thread?
+	if(!handle_)
+	{    
+		delete tsi;
+		return -1;
+	}
 	return 0;
 }
 
 
 #if defined(XQ_WIN_PLATFORM)
-    unsigned WINAPI Thread::thread_func(void * arg)
+    unsigned WINAPI Thread::thread_func(void *arg)
 #else
-    void * Thread::thread_func(void * arg)
+    void * Thread::thread_func(void *arg)
 #endif
 	{
-	   // Get thread startup information
-	  ThreadStartInfo * tsi = (ThreadStartInfo *) arg;
-
+	  // Get thread startup information
+	  ThreadStartInfo *tsi = (ThreadStartInfo *) arg;
 	  try
 	  {
-		// Call the actual client thread function
-		tsi->func_(tsi->arg_);
+		  if(tsi->func_ != NULL)
+		  {
+			// Call the actual externel function
+			tsi->func_(tsi->arg_);
+		  }
+		  else
+		  {
+			//you can call this Thread member function Task 
+			Thread *this_ptr = (Thread*) tsi->thread_ptr_ ;
+			this_ptr->task(NULL);
+		  }
 	  }
 	  catch(...)
 	  {
@@ -71,7 +78,6 @@ int Thread::spawn(int (*func)(void *), void *arg)
 
 	  // The thread is responsible for freeing the startup information
 	  delete tsi;
-
 	  return 0;
 	}
 

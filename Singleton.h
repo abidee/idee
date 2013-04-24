@@ -32,15 +32,17 @@ public:
 		return instance_ptr_;
 	}
 
+	///create a instance with 1 parameter in the ctor
 	template <class C> static T* instance_ptr( C val ) 
 	{
 		if ( instance_ptr_ == NULL ) 
 		{
 		instance_ptr_ = new T(val);
 		}
-		return theInstance;
+		return instance_ptr_;
     }
 
+	///create a instance with 2 parameter in the ctor
     template <class C, class M> static T* instance_ptr( C val1, M val2 ) 
 	{
 		if ( instance_ptr_ == NULL ) 
@@ -57,9 +59,15 @@ public:
 		return *ptr;
 	}
 
-	template <class C> static T& instance(C Val) 
+	template <class C> static T& instance(C val) 
 	{
-		T* ptr = instance_ptr(C);
+		T* ptr = instance_ptr(val);
+		return *ptr;
+	}
+
+	template <class C, class M> static T& instance(C val1, M val2) 
+	{
+		T* ptr = instance_ptr(val1, val2);
 		return *ptr;
 	}
 };
