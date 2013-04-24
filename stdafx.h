@@ -7,7 +7,7 @@
 
 //project config head, must include this file first
 
-#define XQLIB_EXPORT  //for exprot dll 
+#define IDEE_EXPORT  //for exprot dll 
 
 #include "config_idee.h"
 

@@ -13,8 +13,8 @@ namespace os_func
 
 int mutex_init(XQ_mutex_t *m)  //, int lock_type, const char *name, void *arg)  //ACE_mutexattr_t
 {  
-    ::InitializeCriticalSection (m);   
-  	return 0;
+	::InitializeCriticalSection (m);   
+	return 0;
 }
 
 int mutex_destroy(XQ_mutex_t *m)
@@ -25,14 +25,14 @@ int mutex_destroy(XQ_mutex_t *m)
 
 int mutex_lock(XQ_mutex_t *m)
 {
-  ::EnterCriticalSection (m);
+	::EnterCriticalSection (m);
   	return 0;
 }
 
 int mutex_unlock(XQ_mutex_t *m)
 {
-  ::LeaveCriticalSection (m);
-  return 0;
+	::LeaveCriticalSection (m);
+	return 0;
 }
 
 int mutex_trylock(XQ_mutex_t *m)

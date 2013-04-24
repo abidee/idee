@@ -6,7 +6,7 @@ linux platform macro define
 #define XQ_CONFIG_LINUX_H
 
 
-#ifndef XQLIB_EXPORT
+#ifndef IDEE_EXPORT
 	#define XQ_EXPORT __declspec(dllimport)
 	#define XQ_EXPORT_TEMPLATE
 #else
