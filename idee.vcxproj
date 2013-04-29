@@ -97,8 +97,6 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Thread.h" />
     <ClInclude Include="Mutex.h" />
-    <ClInclude Include="TyConf.h" />
-    <ClInclude Include="TyFile.h" />
     <ClInclude Include="win\Win_Sync_Func.h" />
     <ClInclude Include="win\Win_Thread_Func.h" />
   </ItemGroup>
@@ -133,12 +131,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Mutex.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="TyConf.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="TyFile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="win\Win_Sync_Func.cpp">

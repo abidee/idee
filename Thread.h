@@ -76,9 +76,9 @@ public:
 #endif
 	
 private:
-  XQ_thread_t handle_;		//platform sepcific Thread handle
-  unsigned int thread_id_;  //Thread id only for windows 
-  //Thread::id id_;			//id for linux
+	XQ_thread_t handle_;		//platform sepcific Thread handle
+	unsigned int thread_id_;  //Thread id only for windows 
+	//Thread::id id_;			//id for linux
 private:
 	Thread(const Thread& rhs);
 	Thread& operator = (const Thread& rhs);
