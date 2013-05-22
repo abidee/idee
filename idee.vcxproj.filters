@@ -33,9 +33,6 @@
     <ClInclude Include="Thread.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="config.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Mutex.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -81,6 +78,18 @@
     <ClInclude Include="Singleton.h">
       <Filter>头文件</Filter>
     </ClInclude>
+<<<<<<< HEAD
+=======
+    <ClInclude Include="TyConf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TyFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="config_idee.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+>>>>>>> e8ef48db1bd9e6cff952b0121d267592b5f1b6df
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

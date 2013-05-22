@@ -4,19 +4,18 @@
 /**
  * @class Guard
  *
- * @brief This data structure is meant to be used within a method or
- * function...  It performs automatic acquisition and release of
+ * @brief It performs automatic acquisition and release of
  * a parameterized synchronization object T.
  *
  *  A successfully constructed Guard does NOT mean that the lock was acquired!  
  * Code like this is dangerous:
  *   {
- *     ACE_Guard<ACE_Lock> g(lock);
+ *     Guard<Lock> g(lock);
  *     ... perform critical operation requiring lock to be held ...
  *   }
  * Instead, one must do something like this:
  *   {
- *     ACE_Guard<ACE_Lock> g(lock);
+ *     Guard<Lock> g(lock);
  *     if (! g.locked())
  *       {
  *         ... handle error ...

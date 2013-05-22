@@ -42,7 +42,7 @@ public:
 
 public:
 	///create thread 
-	int spawn(int (*func)(void *), void *arg); 
+	int spawn(int (*func)(void *), void *arg); 	
 
 	///get platform specified native handle
 	XQ_thread_t& native_handle();
@@ -68,11 +68,17 @@ public:
 	//TODO add get_id and Thread::id later ...
 	//int get_id();
 
+	///Task member function, if ThreadStratInfo->func == NULL, call this member function
+	virtual int task(void*) 
+	{
+		return 0;
+	};
+
 	//platform sepcific Thread function(windows, posix)
 #if defined(XQ_WIN_PLATFORM)
-    static unsigned WINAPI thread_func(void * arg);
+    static unsigned WINAPI thread_func(void * arg);	
 #elif defined(XQ_LINUX_PLATFORM)
-    static void * thread_func(void * arg);
+    static void * thread_func(void * arg);	
 #endif
 	
 private:
