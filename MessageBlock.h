@@ -46,6 +46,7 @@ public:
 
 	void swap(MessageBlock& rhs);
 
+	///initialize
 	void init(size_t len, size_t head);
 	void release();
 
