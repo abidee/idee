@@ -1,4 +1,4 @@
-#include "..\stdafx.h"
+#include "..\config_idee.h"
 
 #include "Win_Thread_Func.h"
 

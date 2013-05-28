@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "config_idee.h"
 
 #include "ReadWriteMutex.h"
 

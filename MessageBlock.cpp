@@ -1,4 +1,5 @@
-#include "stdafx.h"
+#include "config_idee.h"
+
 #include "MessageBlock.h"
 
 namespace idee

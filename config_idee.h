@@ -16,6 +16,8 @@
 #ifndef XQ_CONFIG_H
 #define XQ_CONFIG_H
 
+//#define IDEE_EXPORT  //for exprot dll ,can be define in IDE or gcc 
+
 //for windows 
 #define XQ_WIN_PLATFORM
 #include "config_win32.h"
