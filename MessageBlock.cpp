@@ -32,9 +32,9 @@ XQ_INLINE void MessageBlock::swap(MessageBlock& rhs)
 
 XQ_INLINE void MessageBlock::init(size_t len, size_t head)
 {
-	this->base_ = (char*)malloc(len);
+	this->base_ = (char*)malloc(len + head);
 
-	this->size_ = len;
+	this->size_ = len + head;
 	this->rd_ptr_ = head;
 	this->wr_ptr_ = head;
 }
@@ -102,13 +102,17 @@ int  MessageBlock::append(const char* buf, size_t len)
 
 		return 0;
 	}
-	else  //前后都放不下, 需要扩充内存大小
-	{
-		this->release();
-		this->base_ = (char*)malloc(len);
-		memcpy(this->base_, buf, len);
-		this->rd_ptr_ = 0;
-		this->wr_ptr_ = len;
+	else  //前后都放不下, 需要重新分配内存大小
+	{	
+		char *old_base = this->base_;
+		char *old_data = this->rd_ptr();
+		int old_len = this->data_len();
+
+		this->init(old_len + len);
+		this->append(old_data, old_len);
+		this->append(buf, len);
+
+		free(old_base);
 		return 0;
 	}
 }

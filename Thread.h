@@ -69,7 +69,7 @@ public:
 	//int get_id();
 
 	///Task member function, if ThreadStratInfo->func == NULL, call this member function
-	virtual int task(void*) 
+	virtual int task(void*)
 	{
 		return 0;
 	};

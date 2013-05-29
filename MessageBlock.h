@@ -15,7 +15,8 @@
 *  |                   | ##### here is real data ##### |                           |
 *  +-------------------+-------------------------------+---------------------------+
 *  0     <=         rd_ptr_         <=             wr_ptr_          <=             size
-*
+*base
+*  
 */
 
 #ifndef XQ_MESSAGEBLOCK_H
@@ -47,7 +48,7 @@ public:
 	void swap(MessageBlock& rhs);
 
 	///initialize
-	void init(size_t len, size_t head);
+	void init(size_t len, size_t head=8);
 	void release();
 
 	///get capacity 
