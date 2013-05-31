@@ -42,7 +42,13 @@ XQ_INLINE void MessageBlock::init(size_t len, size_t head)
 XQ_INLINE void MessageBlock::release()
 {
 	if(msg_type_ != MSG_NOT_FREE)
+	{
 		free(this->base_);
+		this->base_ = NULL;
+	}
+	this->size_	  = 0;
+	this->rd_ptr_ = 0;
+	this->wr_ptr_ = 0;
 }
 	
 XQ_INLINE size_t MessageBlock::capacity()
@@ -61,24 +67,30 @@ XQ_INLINE size_t MessageBlock::data_len()
 	return len >= 0 ? len : -1;
 }
 
-XQ_INLINE char *MessageBlock::rd_ptr()
+XQ_INLINE char *MessageBlock::rd_ptr() const
 {
 	return this->base_ + this->rd_ptr_;
 }
 
-XQ_INLINE char *MessageBlock::wr_ptr()
+XQ_INLINE char *MessageBlock::wr_ptr() const
 {
 	return this->base_ + this->wr_ptr_;
 }
 
 XQ_INLINE void MessageBlock::rd_ptr(int len)
-{
-	this->rd_ptr_ += len;  //TODO 小于0 或者 超过size 怎么办?
+{	
+	if((this->rd_ptr_ + len) > this->size_)
+		this->rd_ptr_ = this->size_;
+	else
+		this->rd_ptr_ += len;  //TODO 小于0怎么办?
 }
 
 XQ_INLINE void MessageBlock::wr_ptr(int len)
 {
-	this->wr_ptr_ += len;
+	if((this->wr_ptr_ + len) > this->size_)
+		this->wr_ptr_ = this->size_;
+	else
+		this->wr_ptr_ += len; 	
 }
 
 int  MessageBlock::append(const char* buf, size_t len)

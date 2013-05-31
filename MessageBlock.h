@@ -64,8 +64,8 @@ public:
 	int append(const char *buf, size_t len);
 
 	//get read or write ptr
-	char *rd_ptr();
-	char *wr_ptr();
+	char *rd_ptr() const;
+	char *wr_ptr() const;
 
 	//set read or write ptr
 	void rd_ptr(int len);
